@@ -13,6 +13,6 @@ setup(
     version="1.0.0",
     install_requires=REQUIREMENTS,
     description="Deep Dict Compare",
-    packages=find_packages(exclude=["tests", "tests.*"])
+    packages=find_packages(exclude=["tests", "src", "tests.*"])
 )
 
