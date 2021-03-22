@@ -1,8 +1,9 @@
 import unittest
-from DeepCompare.dictcompare.compare import compare_values, compare_values_with_case_sensitivity
 
 
 __author__ = 'Sanz009'
+
+from compare.compare_util import compare_values, compare_values_with_case_sensitivity
 
 
 class CompareUtilsTest(unittest.TestCase):
