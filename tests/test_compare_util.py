@@ -1,6 +1,5 @@
 import unittest
 
-
 __author__ = 'Sanz009'
 
 from compare.compare_util import compare_values, compare_values_with_case_sensitivity
@@ -114,3 +113,16 @@ class CompareUtilsTest(unittest.TestCase):
         value_3 = {1: [{"c": 2, "d": 3}], 2: [{"b": 2, "a": True}]}
         self.assertEqual(compare_values(value_1, value_2), True)
         self.assertEqual(compare_values(value_1, value_3), False)
+
+    def test_compare_values_empty_list_variants(self):
+        self.assertEqual(compare_values([], []), True)
+        self.assertEqual(compare_values([{}], [{}]), True)
+        self.assertEqual(compare_values([{}, {}], [{}, {}]), True)
+        self.assertEqual(compare_values([{"a": [{}]}], [{"a": [{}]}]), True)
+        self.assertEqual(compare_values([{"a": []}], [{"a": []}]), True)
+
+        self.assertEqual(compare_values([], [{}]), False)
+        self.assertEqual(compare_values([{}], []), False)
+        self.assertEqual(compare_values([{}], [{"a": []}]), False)
+        self.assertEqual(compare_values([{"a": []}], [{"a": [1, 2, 3]}]), False)
+        self.assertEqual(compare_values([{"a": [{}]}], [{"a": []}]), False)

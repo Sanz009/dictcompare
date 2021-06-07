@@ -7,7 +7,6 @@ Case Sensitivity can be checked/unchecked.
 
 __author__ = 'Sanz009'
 
-
 from typing import Union, List, Dict, Optional
 
 
@@ -22,7 +21,7 @@ def compare_dict_values(dict_1, dict_2, case_sensitivity=False):
     """
     if len(dict_1.keys()) != len(dict_2.keys()):
         return False
-    flag = False
+    flag = True
     for key, value in dict_1.items():
         if key in dict_2 and compare_values(value, dict_2[key], case_sensitivity):
             flag = True
